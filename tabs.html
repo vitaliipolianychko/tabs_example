@@ -1,0 +1,70 @@
+<html>
+<head>
+	<style>
+	.tab{
+		
+		width: 300px;
+		height: 30px;
+		
+	}	
+	.tab button{
+		background-color: #2196F3;
+		float: left;
+		border: none;
+		cursor: pointer;
+		padding: 10px 12px;
+		font-size: 11pt;
+		color: silver;
+		outline: none;
+	}
+	.button_link.active{
+		display: block;
+		border-bottom: 1px solid black;
+		color: white;
+	}
+	.show_content{
+		display: none;
+	}
+	.show_content.active{
+	display: block;
+
+	}
+	
+	</style>
+</head>
+	<body>
+	<div class='tab'>
+	<button class='button_link active' onclick="showTabs(this,0)">Item One</button>
+	<button class='button_link' onclick="showTabs(this,1)">Item Two</button>
+	<button class='button_link' onclick="showTabs(this,2)">Item Three</button>
+	</div>
+	<div class="show_content active">
+		<h3> Item one</h3>
+	</div>
+	<div class="show_content">
+		<h3> Item two</h3>
+	</div>
+	<div class="show_content">
+		<h3> Item three</h3>
+	</div>
+<script>
+	function removeClass(param1)
+	{
+		for(i=0; i<param1.length; i++)
+		{
+			param1[i].classList.remove('active');
+		}
+	}
+	function showTabs(event,index){
+		let i, links,contents;
+		links = document.querySelectorAll('.button_link');
+		removeClass(links);
+		event.classList.add('active');
+		contents = document.querySelectorAll('.show_content');
+		removeClass(contents);
+		contents[index].classList.add('active');
+	}
+</script>
+	</body>
+
+</html>
